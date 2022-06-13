@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block Login %}Sign Up{% endblock %} {% block content %}
+<!-- partial:index.partial.html -->
+<div id="login-form-wrap">
+    <h2>Login</h2>
+    {% comment %}
+    <form id="login-form">
+        <p>
+            <input type="text" id="username" name="username" placeholder="Username" required /><i class="validation"
+                ><span></span><span></span
+            ></i>
+        </p>
+        <p>
+            <input type="email" id="email" name="email" placeholder="Email Address" required /><i class="validation"
+                ><span></span><span></span
+            ></i>
+        </p>
+        <p>
+            <input type="submit" id="login" value="Login" />
+        </p>
+    </form>
+    {% endcomment %}
+    <form method="post" id="login-form">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" id="login">Log In</button>
+    </form>
+    <div id="create-account-wrap">
+        <p>Not a member? <a href={% url 'signup' %}>Create Account</a></p>
+        <p></p>
+    </div>
+
+    <!--create-account-wrap-->
+</div>
+<!--login-form-wrap-->
+<!-- partial -->
+
+{% endblock %}

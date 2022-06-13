@@ -1,0 +1,33 @@
+<!-- templates/registration/signup.html -->
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block content %}
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8" />
+        <title>SignUp Page</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+        {% comment %}
+        <link rel="stylesheet" href="./style.css" />
+        {% endcomment %}
+    </head>
+    <body>
+        <div id="login-form-wrap">
+            <h2>Sign up</h2>
+            <form method="post" id="login-form">
+                {% if user.is_authenticated %}
+                <p><a href="{% url 'logout' %}">Log Out</a></p>
+                {%else%} {% csrf_token %} {{ form.as_p }}
+                <button type="submit" id="login">Sign Up</button>
+                {% endif %}
+            </form>
+
+            <div id="create-account-wrap">
+                <p>Already member? <a href={% url 'login' %}>Log In</a></p>
+                <p></p>
+            </div>
+
+            <!--create-account-wrap-->
+        </div>
+    </body>
+    {% endblock %}
+</html>
